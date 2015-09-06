@@ -1,2 +1,0 @@
-# resourceR
-Hacky node stuff 

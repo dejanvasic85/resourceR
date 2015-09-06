@@ -1,0 +1,33 @@
+﻿<div class="jumbotron">
+    <h1>ResourceR</h1>
+    <p class="lead">Come here &amp; organise your crap.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="row" ng-app="resourceApp" ng-controller="assetCtrl as ctrl" ng-init="ctrl.init()" ng-cloak>
+    <div class="col-xs-12">
+
+        @*<div class="form-inline" ng-form="newAssetForm">
+                <div class="form-group">
+                    <label for="newAssetName">Name</label>
+                    <input type="text" class="form-control input-lg" ng-model="ctrl.newAsset.assetName" id="newAssetName" name="newAssetName" placeholder="Jane Doe" ng-required="true">
+                </div>
+
+                <button class="btn btn-default btn-lg" ng-click="ctrl.saveNew()">Save</button>
+            </div>*@
+
+        <div class="top-buffer-30">
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="ass in ctrl.assets" ng-class="{'warning' : ass.currentOwner !== null && ass.currentOwner !== '' }">
+                    <td><input type="text" class="form-control input-lg" ng-model="ass.assetName" placeholder="Machine Name" /></td>
+                    <td><input type="text" class="form-control input-lg" ng-model="ass.currentOwner" placeholder="Current Owner" /></td>
+                    <td>
+                        <button class="btn btn-lg btn-default" ng-click="ctrl.update(ass)"><i class="glyphicon glyphicon-floppy-save"></i></button> &nbsp;
+                        <button class="btn btn-lg btn-default" ng-click="ctrl.remove(ass)"><i class="glyphicon glyphicon-trash"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
