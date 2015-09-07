@@ -218,7 +218,16 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="Scripts\bower_components\ngprogress\.bower.json" />
+    <Content Include="Scripts\bower_components\ngprogress\bower.json" />
+    <Content Include="Scripts\bower_components\ngprogress\LICENSE" />
+    <Content Include="Scripts\bower_components\ngprogress\readme.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.js" />
+    <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.min.js" />
+    <Content Include="Scripts\bower_components\ngprogress\ngProgress.css" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

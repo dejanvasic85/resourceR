@@ -1,0 +1,16 @@
+{
+  "name": "ResourceR",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dejanvasic85/resourceR",
+  "authors": [
+    "TOWER\\dejan.vasic <dejan.vasic@tal.com.au>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

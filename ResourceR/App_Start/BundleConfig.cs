@@ -22,13 +22,16 @@ namespace ResourceR
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular/angular.js")
-                .IncludeDirectory("~/Scripts/angular", "*.js", true));
+                .IncludeDirectory("~/Scripts/angular", "*.js", true)
+                .Include("~/Scripts/bower_components/ngprogress/build/ngprogress.js")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/resourceApp").IncludeDirectory("~/resourceApp", "*.js", true));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.lumen.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Scripts/bower_components/ngprogress/ngProgress.css"));
         }
     }
 }

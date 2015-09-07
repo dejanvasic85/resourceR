@@ -1,0 +1,7 @@
+{
+  "directory": "scripts/bower_components",
+  "registry": "http://bower.herokuapp.com",
+  "strict-ssl": false,
+  "proxy" : "http://dc1prd232.tower.lan:8080/",
+  "https-proxy" : "http://dc1prd232.tower.lan:8080/"
+}

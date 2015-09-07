@@ -1,6 +1,7 @@
-﻿angular.module("resourceApp", ['ngResource'])
+﻿angular.module("resourceApp", ['ngResource', 'ngProgress'])
 
-    .controller('assetCtrl', function ($scope, $resource) {
+    .controller('assetCtrl', function ($resource, ngProgressFactory) {
+
         var vm = this;
         var Asset = $resource('/api/asset/:id', { id: '@id' }, { update: { method: 'PUT' } });
 
@@ -10,35 +11,43 @@
             save: save,
             init: init,
             update: update,
-            remove: remove
+            remove: remove,
+            progress : ngProgressFactory.createInstance()
         });
 
         function init() {
+            vm.progress.start();
             var entries = Asset.query(function () {
                 vm.assets = entries;
+                vm.progress.complete();
             });
         }
 
         function save() {
+            vm.progress.start();
             var a = new Asset();
             angular.copy(vm.newAsset, a);
             a.$save(function (res) {
                 vm.assets.push(res);
+                vm.progress.complete();
             });
         }
 
         function update(asset) {
+            vm.progress.start();
             asset.$update(function (res) {
-                console.log(res);
+                vm.progress.complete();
             });
         }
 
         function remove(asset) {
             if (confirm('Are you sure?')) {
+                vm.progress.start();
                 asset.$delete(function (res) {
                     vm.assets = vm.assets.filter(function (obj) {
                         return obj.id !== res.id;
                     });
+                    vm.progress.complete();
                 });
             }
         }
