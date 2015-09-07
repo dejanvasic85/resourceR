@@ -224,6 +224,7 @@
     <Content Include="Scripts\bower_components\ngprogress\bower.json" />
     <Content Include="Scripts\bower_components\ngprogress\LICENSE" />
     <Content Include="Scripts\bower_components\ngprogress\readme.md" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.js" />
     <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.min.js" />
