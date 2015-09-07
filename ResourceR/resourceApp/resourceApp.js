@@ -30,6 +30,7 @@
             a.$save(function (res) {
                 vm.assets.push(res);
                 vm.progress.complete();
+                vm.newAsset = {};
             });
         }
 

@@ -20,6 +20,7 @@
                 <tr ng-repeat="ass in vm.assets" ng-class="{'warning' : ass.currentOwner !== null && ass.currentOwner !== '' }">
                     <td><input type="text" class="form-control input-lg" ng-model="ass.assetName" placeholder="Machine Name" /></td>
                     <td><input type="text" class="form-control input-lg" ng-model="ass.currentOwner" placeholder="Current Owner" /></td>
+                    <td><input type="text" class="form-control input-lg" ng-model="ass.estimatedCompletion" placeholder="ETA" /></td>
                     <td>
                         <button class="btn btn-lg btn-default" ng-click="vm.update(ass)"><i class="glyphicon glyphicon-floppy-save"></i></button> &nbsp;
                         <button class="btn btn-lg btn-default" ng-click="vm.remove(ass)"><i class="glyphicon glyphicon-trash"></i></button>
