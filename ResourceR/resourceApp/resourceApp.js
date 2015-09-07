@@ -2,11 +2,12 @@
 
     .controller('assetCtrl', function ($scope, $resource) {
         var vm = this;
-        var Asset = $resource('api/asset/:id');
+        var Asset = $resource('/api/asset/:id', { id: '@id' }, { update: { method: 'PUT' } });
 
         angular.extend(vm, {
             assets: null,
             newAsset: {},
+            save: save,
             init: init,
             update: update,
             remove: remove
@@ -18,45 +19,28 @@
             });
         }
 
+        function save() {
+            var a = new Asset();
+            angular.copy(vm.newAsset, a);
+            a.$save(function (res) {
+                vm.assets.push(res);
+            });
+        }
+
         function update(asset) {
-            Asset.update(asset);
+            asset.$update(function (res) {
+                console.log(res);
+            });
         }
 
         function remove(asset) {
             if (confirm('Are you sure?')) {
-                asset.$delete(function() {
-                    vm.assets.filter(function(a) {
-                        return a.id === asset.id;
+                asset.$delete(function (res) {
+                    vm.assets = vm.assets.filter(function (obj) {
+                        return obj.id !== res.id;
                     });
                 });
             }
         }
     })
-    
-    //.service('Asset', function ($http) {
-
-    //    this.getAll = function () {
-    //        return $http({ url: 'api/asset' });
-    //    }
-
-    //    this.update = function (asset) {
-    //        return $http({
-    //            url: 'api/asset',
-    //            method: 'PUT',
-    //            data : asset
-    //        });
-    //    }
-
-    //    this.create = function (asset) {
-    //        return $http({
-    //            url: 'api/asset',
-    //            method: 'POST',
-    //            data : asset
-    //        });
-    //    }
-
-    //    this.remove = function() {
-            
-    //    }
-    //})
 ;

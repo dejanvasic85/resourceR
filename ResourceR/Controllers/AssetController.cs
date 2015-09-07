@@ -28,9 +28,11 @@ namespace ResourceR.Controllers
         }
 
         // POST api/asset
-        public async Task<string> Post([FromBody]Asset value)
+        public async Task<IHttpActionResult> Post([FromBody]Asset value)
         {
-            return await _assetRepository.Save(value);
+            await _assetRepository.Save(value);
+
+            return Ok(value);
         }
 
         // PUT api/asset/5
@@ -41,12 +43,12 @@ namespace ResourceR.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         // DELETE api/asset/5
-        public async Task<IHttpActionResult> Delete(string id)
+        public async Task Delete(string id)
         {
             await _assetRepository.Delete(id);
 
-            return Ok();
         }
     }
 }
