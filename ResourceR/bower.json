@@ -12,5 +12,13 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-datepicker": "~1.0.14",
+    "ngprogress": "~1.1.2",
+    "angular": "~1.4.5",
+    "bootstrap": "~3.3.5",
+    "angular-resource": "~1.4.5",
+    "jquery": "~2.1.4"
+  }
 }

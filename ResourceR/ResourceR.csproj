@@ -192,13 +192,8 @@
     <Content Include="Content\bootstrap.lumen.css" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="resourceApp\resourceApp.js" />
-    <Content Include="Scripts\angular\angular-resource.js" />
-    <Content Include="Scripts\angular\angular.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -220,25 +215,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="bower.json" />
     <Content Include=".bowerrc" />
-    <Content Include="Scripts\bower_components\ngprogress\.bower.json" />
-    <Content Include="Scripts\bower_components\ngprogress\bower.json" />
-    <Content Include="Scripts\bower_components\ngprogress\LICENSE" />
-    <Content Include="Scripts\bower_components\ngprogress\readme.md" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.js" />
-    <Content Include="Scripts\bower_components\ngprogress\build\ngprogress.min.js" />
-    <Content Include="Scripts\bower_components\ngprogress\ngProgress.css" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Compile Include="Services\Repository`T.cs" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -256,15 +233,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\bower_components\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>

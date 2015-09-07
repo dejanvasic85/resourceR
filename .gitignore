@@ -39,6 +39,7 @@ node_modules/
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 NuGetPackages/
 packages/
+bower_components/
 
 # Visual C++ cache files
 ipch/
