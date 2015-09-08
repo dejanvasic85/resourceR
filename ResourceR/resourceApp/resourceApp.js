@@ -8,14 +8,14 @@
         angular.extend(vm, {
             assets: null,
             newAsset: {},
-            save: save,
+            save: add,
             lock: lock,
             unlock: unlock,
             init: init,
             update: update,
             remove: remove,
             progress: ngProgressFactory.createInstance(),
-            teamFilter : null
+            teamFilter: ''
         });
 
         function init() {
@@ -24,11 +24,11 @@
             var entries = Asset.query(function () {
                 vm.assets = entries;
                 vm.progress.complete();
-                vm.teamOptions = _.pluck(entries, 'team');
+                vm.teamOptions = _.uniq(_.pluck(entries, 'team'));
             });
         }
 
-        function save() {
+        function add() {
             vm.progress.start();
             var a = new Asset();
             angular.copy(vm.newAsset, a);
@@ -36,6 +36,9 @@
                 vm.assets.push(res);
                 vm.progress.complete();
                 vm.newAsset = {};
+                if (vm.teamOptions.indexOf(res.team) === -1) {
+                    vm.teamOptions.push(res.team);
+                }
             });
         }
 
@@ -53,6 +56,7 @@
 
         function update(asset) {
             vm.progress.start();
+            asset.isLocked = asset.currentOwner !== '';
             asset.$update(function (res) {
                 vm.progress.complete();
             });

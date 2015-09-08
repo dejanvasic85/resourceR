@@ -12,12 +12,11 @@
     <div class="col-xs-12">
 
         <div class="top-buffer-30">
-            <table class="table table-striped table-responsive">
+            <table class="table table-striped table-responsive asset-list">
                 <thead>
                     <tr>
                         <th>
                             <select class="form-control" ng-model="vm.teamFilter" ng-options="t for t in vm.teamOptions">
-                                <option value="">All Teams</option>
                             </select>
                         </th>
                         <th>Resource Name</th>
@@ -27,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="ass in vm.assets" ng-class="{'info' : ass.isLocked === true}">
+                    <tr ng-repeat="ass in vm.assets | filter : { team : vm.teamFilter } " ng-class="{'danger' : ass.isLocked === true}">
                         <td>
                             <h3><span class="label label-default" ng-bind="ass.team"></span></h3>
                         </td>
@@ -39,24 +38,8 @@
                         <td><input type="text" class="form-control input-lg" ng-model="ass.currentOwner" placeholder="Current Owner" /></td>
                         <td><input type="text" class="form-control input-lg" ng-model="ass.estimatedCompletion" placeholder="ETA" date-time view="date" auto-close="true" /></td>
                         <td>
-                            <div class="btn-group">
-                                <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Options <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    @*<li>
-                                            <a href="" ng-click="vm.update(ass)"><i class="glyphicon glyphicon-floppy-save"></i> Save</a>
-                                        </li>*@
-                                    <li ng-show="ass.isLocked === false">
-                                        <a href="" ng-click="vm.lock(ass)"><i class="glyphicon glyphicon-lock"></i> Lock</a>
-                                    </li>
-                                    <li ng-show="ass.isLocked === true">
-                                        <a href="" ng-click="vm.unlock(ass)"><i class="glyphicon glyphicon-lock"></i> Unlock</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="" ng-click="vm.remove(ass)"><i class="glyphicon glyphicon-trash"></i> Delete</a></li>
-                                </ul>
-                            </div>
+                            <button class="btn btn-default btn-lg btn-primary" ng-click="vm.update(ass)"><i class="glyphicon glyphicon-floppy-save"></i></button>
+                            <button class="btn btn-default btn-lg btn-danger" ng-click="vm.remove(ass)"><i class="glyphicon glyphicon-trash"></i></button>
                         </td>
                     </tr>
                 </tbody>

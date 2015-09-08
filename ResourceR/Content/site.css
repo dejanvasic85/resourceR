@@ -5,3 +5,12 @@
 .top-buffer-30 {
     margin-top: 30px;
 }
+
+.asset-list h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
