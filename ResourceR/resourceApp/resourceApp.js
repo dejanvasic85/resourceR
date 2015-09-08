@@ -7,10 +7,11 @@
 
         angular.extend(vm, {
             assets: null,
-            newAsset: {},
+            newAsset: {
+                assetName : '',
+                team : ''
+            },
             save: add,
-            lock: lock,
-            unlock: unlock,
             init: init,
             update: update,
             remove: remove,
@@ -42,28 +43,16 @@
             });
         }
 
-        function lock(asset) {
-            asset.isLocked = true;
-            update(asset);
-        }
-
-        function unlock(asset) {
-            asset.isLocked = false;
-            asset.currentOwner = null;
-            asset.estimatedCompletion = null;
-            update(asset);
-        }
-
         function update(asset) {
             vm.progress.start();
-            asset.isLocked = asset.currentOwner !== '';
+            asset.isLocked = asset.currentOwner !== '' && asset.currentOwner !== null && asset.currentOwner !== undefined;
             asset.$update(function (res) {
                 vm.progress.complete();
             });
         }
 
         function remove(asset) {
-            if (confirm('Are you sure?')) {
+            if (confirm('This will remove the entire resource. Are you sure you want to do this?')) {
                 vm.progress.start();
                 asset.$delete(function (res) {
                     vm.assets = vm.assets.filter(function (obj) {

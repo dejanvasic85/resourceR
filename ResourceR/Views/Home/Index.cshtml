@@ -1,7 +1,6 @@
-﻿<div class="jumbotron">
-    <h1>ResourceR</h1>
-    <p class="lead">Come here &amp; organise your crap.</p>
-    <p><a href="https://github.com/dejanvasic85/resourceR" class="btn btn-primary btn-lg" target="_blank">Contribute &raquo;</a></p>
+﻿<div class="well well-sm">
+    <h1>BookIT</h1>
+    <p class="lead">Come here &amp; to book something.</p>
 </div>
 <div class="row" 
      ng-app="resourceApp" 
@@ -16,8 +15,7 @@
                 <thead>
                     <tr>
                         <th>
-                            <select class="form-control" ng-model="vm.teamFilter" ng-options="t for t in vm.teamOptions">
-                            </select>
+                            <select class="form-control" ng-model="vm.teamFilter" ng-options="t for t in vm.teamOptions"></select>
                         </th>
                         <th>Resource Name</th>
                         <th>Current Owner</th>
@@ -54,7 +52,7 @@
                         </td>
                         <td colspan="2"></td>
                         <td>
-                            <button class="btn btn-default btn-lg" ng-click="vm.save()">Add</button>
+                            <button class="btn btn-default btn-lg" ng-disabled="vm.newAsset.assetName === '' || vm.newAsset.team === ''" ng-click="vm.save()">Add</button>
                         </td>
                     </tr>
                 </tfoot>
