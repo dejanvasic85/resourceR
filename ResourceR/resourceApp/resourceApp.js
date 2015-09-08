@@ -1,6 +1,6 @@
 ﻿angular.module("resourceApp", ['ngResource', 'ngProgress', 'datePicker'])
 
-    .controller('assetCtrl', function ($resource, ngProgressFactory) {
+    .controller('assetCtrl', ['$resource', 'ngProgressFactory', function ($resource, ngProgressFactory) {
 
         var vm = this;
         var Asset = $resource('/api/asset/:id', { id: '@id' }, { update: { method: 'PUT' } });
@@ -73,5 +73,5 @@
                 });
             }
         }
-    })
+    }])
 ;
