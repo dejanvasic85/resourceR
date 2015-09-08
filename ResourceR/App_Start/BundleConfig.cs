@@ -17,6 +17,7 @@ namespace ResourceR
                 .Include("~/Scripts/bower_components/angular-datepicker/dist/index.js")
                 .Include("~/Scripts/bower_components/ngprogress/build/ngprogress.js")
                 .Include("~/Scripts/bower_components/bootstrap/dist/js/bootstrap.js")
+                .Include("~/Scripts/bower_components/lodash/lodash.js")
                 );
 
             // Our Application

@@ -14,7 +14,8 @@
             init: init,
             update: update,
             remove: remove,
-            progress : ngProgressFactory.createInstance()
+            progress: ngProgressFactory.createInstance(),
+            teamFilter : null
         });
 
         function init() {
@@ -23,6 +24,7 @@
             var entries = Asset.query(function () {
                 vm.assets = entries;
                 vm.progress.complete();
+                vm.teamOptions = _.pluck(entries, 'team');
             });
         }
 

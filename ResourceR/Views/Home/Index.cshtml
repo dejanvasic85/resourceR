@@ -3,15 +3,23 @@
     <p class="lead">Come here &amp; organise your crap.</p>
     <p><a href="https://github.com/dejanvasic85/resourceR" class="btn btn-primary btn-lg" target="_blank">Contribute &raquo;</a></p>
 </div>
-<div class="row" ng-app="resourceApp" ng-controller="assetCtrl as vm" ng-init="vm.init()" ng-cloak>
+<div class="row" 
+     ng-app="resourceApp" 
+     ng-controller="assetCtrl as vm" 
+     ng-init="vm.init()" 
+     ng-cloak>
 
     <div class="col-xs-12">
 
         <div class="top-buffer-30">
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive">
                 <thead>
                     <tr>
-                        <th>Team</th>
+                        <th>
+                            <select class="form-control" ng-model="vm.teamFilter" ng-options="t for t in vm.teamOptions">
+                                <option value="">All Teams</option>
+                            </select>
+                        </th>
                         <th>Resource Name</th>
                         <th>Current Owner</th>
                         <th>ETA</th>
@@ -23,7 +31,6 @@
                         <td>
                             <h3><span class="label label-default" ng-bind="ass.team"></span></h3>
                         </td>
-                        @*<td><input type="text" class="form-control input-lg" ng-model="ass.assetName" placeholder="Resource Name" /></td>*@
                         <td>
                             <h3>
                                 <span class="label label-success" ng-bind="ass.assetName"></span>
@@ -56,12 +63,13 @@
                 <tfoot>
                     @*Quick Add*@
                     <tr>
-                        <td colspan="2">
+                        <td>
                             <input type="text" class="form-control input-lg" ng-model="vm.newAsset.team" placeholder="Team"/>
                         </td>
-                        <td colspan="2">
+                        <td>
                             <input type="text" class="form-control input-lg" ng-model="vm.newAsset.assetName" placeholder="Resource Name" />
                         </td>
+                        <td colspan="2"></td>
                         <td>
                             <button class="btn btn-default btn-lg" ng-click="vm.save()">Add</button>
                         </td>
