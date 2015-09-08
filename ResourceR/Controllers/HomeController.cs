@@ -6,7 +6,7 @@ namespace ResourceR.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Resource Management - simple";
 
             return View();
         }

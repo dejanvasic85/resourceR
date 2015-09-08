@@ -9,6 +9,8 @@
             assets: null,
             newAsset: {},
             save: save,
+            lock: lock,
+            unlock: unlock,
             init: init,
             update: update,
             remove: remove,
@@ -33,6 +35,18 @@
                 vm.progress.complete();
                 vm.newAsset = {};
             });
+        }
+
+        function lock(asset) {
+            asset.isLocked = true;
+            update(asset);
+        }
+
+        function unlock(asset) {
+            asset.isLocked = false;
+            asset.currentOwner = null;
+            asset.estimatedCompletion = null;
+            update(asset);
         }
 
         function update(asset) {
