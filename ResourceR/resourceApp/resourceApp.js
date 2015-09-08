@@ -1,4 +1,4 @@
-﻿angular.module("resourceApp", ['ngResource', 'ngProgress'])
+﻿angular.module("resourceApp", ['ngResource', 'ngProgress', 'datePicker'])
 
     .controller('assetCtrl', function ($resource, ngProgressFactory) {
 
@@ -16,6 +16,7 @@
         });
 
         function init() {
+            vm.progress.setHeight('4px');
             vm.progress.start();
             var entries = Asset.query(function () {
                 vm.assets = entries;
