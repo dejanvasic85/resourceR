@@ -1,6 +1,6 @@
 ﻿<div class="well well-sm">
     <h1>BookIT</h1>
-    <p class="lead">Come here &amp; to book something.</p>
+    <p class="lead">Come here to book something.</p>
 </div>
 
 <div class="row" 
@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="ass in vm.assets | filter : { team : vm.teamFilter } " ng-class="{'danger' : ass.isLocked === true}">
+                    <tr ng-repeat="ass in vm.assets | filter : { team : vm.teamFilter } " ng-class="{'success' : ass.isLocked === true}">
                         <td>
                             <h3><span class="label label-default" ng-bind="ass.team"></span></h3>
                         </td>
