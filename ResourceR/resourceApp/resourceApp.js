@@ -1,6 +1,6 @@
 ﻿angular.module("resourceApp", ['ngResource', 'ngProgress', 'datePicker'])
     .controller('assetCtrl', [
-        '$resource', 'ngProgressFactory', function ($resource, ngProgressFactory) {
+        '$scope', '$resource', 'ngProgressFactory', function ($scope, $resource, ngProgressFactory) {
 
             var vm = this;
             var Asset = $resource('/api/asset/:id', { id: '@id' }, { update: { method: 'PUT' } });
@@ -25,6 +25,10 @@
                 vm.progress.start();
                 var entries = Asset.query(function () {
                     vm.assets = entries;
+                    $scope.$watch('vm.assets', function(oldVal, newVal) {
+                        console.log(oldVal);
+                        console.log(newVal);
+                    }, true);
                     vm.progress.complete();
                     vm.teamOptions = _.uniq(_.pluck(entries, 'team'));
                 });
@@ -46,6 +50,7 @@
 
             function update(asset) {
                 vm.progress.start();
+                asset.assForm.$setPristine();
                 asset.isLocked = asset.currentOwner !== '' && asset.currentOwner !== null && asset.currentOwner !== undefined;
                 asset.$update(function (res) {
                     vm.progress.complete();
@@ -69,17 +74,4 @@
             }
         }
     ])
-    .directive('tdToggleButton', [function () {
-        return {
-            restrict: 'E',
-            scope : {
-                
-            },
-            transclude: true,
-            template: '<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"><ng-transclude></ng-transclude></button>',
-            link : function(scope, element, attrs) {
-                
-            }
-        }
-    }]);
 ;
